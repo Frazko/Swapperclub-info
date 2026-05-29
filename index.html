@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swapper Club — Collect · Trade · Complete</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #1a0a2e;
+      --purple-mid: #2D0A3E;
+      --purple-light: #4a1a6e;
+      --gold: #c9a227;
+      --gold-light: #f0c94a;
+      --gold-shine: #ffe082;
+      --silver: #b0b8c8;
+      --silver-light: #dde4f0;
+      --white: #ffffff;
+      --text-muted: rgba(255,255,255,0.65);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--purple-deep);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem 4rem;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 30%, var(--purple-light) 0%, var(--purple-deep) 70%);
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+
+    .hero-tagline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      letter-spacing: 0.06em;
+      line-height: 1.05;
+      color: var(--white);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+      margin-bottom: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero-tagline span {
+      background: linear-gradient(135deg, var(--gold-shine), var(--gold), var(--silver-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-width: 180px;
+    }
+
+    .store-btn:hover { transform: translateY(-3px); }
+
+    .store-btn-apple {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .store-btn-google {
+      background: #000000;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .store-btn-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .store-btn-text small { font-size: 0.7rem; font-weight: 400; opacity: 0.8; }
+    .store-btn-text strong { font-size: 1rem; }
+
+    .dots {
+      display: flex;
+      gap: 0.4rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.3;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.3s; }
+    .dot:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes pulse {
+      0%,100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* FEATURES */
+    section { padding: 5rem 1.5rem; }
+
+    .section-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, var(--gold-shine), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .features { background: linear-gradient(180deg, var(--purple-deep) 0%, #0f0620 100%); }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, rgba(74,26,110,0.4), rgba(26,10,46,0.6));
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,162,39,0.5);
+      box-shadow: 0 12px 40px rgba(201,162,39,0.15);
+    }
+
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* HOW IT WORKS */
+    .how { background: linear-gradient(180deg, #0f0620 0%, var(--purple-deep) 100%); }
+    .how-inner { max-width: 900px; margin: 0 auto; }
+    .how-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .step { text-align: center; }
+
+    .step-num {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #a87820);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--purple-deep);
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+    }
+
+    .step h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--purple-mid), #0a0418);
+      text-align: center;
+      padding: 5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+
+    /* FOOTER */
+    footer {
+      background: #08030f;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(201,162,39,0.1);
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-tagline">
+      Completá tu álbum<br><span>sin salir de casa</span>
+    </h1>
+    <p class="hero-sub">
+      Registrá tus stickers, encontrá coleccionistas cerca tuyo y hacé intercambios seguros — todo desde la app.
+    </p>
+    <div class="store-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.swapperclub.app" target="_blank" class="store-btn store-btn-google">
+        <svg width="22" height="24" viewBox="0 0 22 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.5 23.3c0 .4.5.6.8.4L12 12 1.3.3C1 .1.5.3.5.7v22.6z" fill="#34A853"/>
+          <path d="M15.8 8.2l-3.8 3.8 3.8 3.8 3.5-2c.9-.5.9-1.6 0-2.1l-3.5-1.5z" fill="#FBBC04"/>
+          <path d="M1.3.3L12 12l3.8-3.8L1.8 0C1.5-.1 1 .1 1.3.3z" fill="#4285F4"/>
+          <path d="M1.3 23.7L15.8 15.8 12 12 1.3 23.7z" fill="#EA4335"/>
+        </svg>
+        <div class="store-btn-text">
+          <small>Disponible en</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+      <a href="https://apps.apple.com/app/swapper-club/id6774427126" target="_blank" class="store-btn store-btn-apple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        <div class="store-btn-text">
+          <small>Próximamente en</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+    </div>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-inner">
+    <div class="features-header reveal">
+      <div class="section-label">¿Por qué Swapper Club?</div>
+      <h2 class="section-title">Todo lo que necesitás<br><span>para completar tu álbum</span></h2>
+      <p class="section-sub" style="margin: 0 auto;">La forma más inteligente de intercambiar stickers con coleccionistas cerca tuyo.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-icon">📦</span>
+        <h3>Controlá tu colección</h3>
+        <p>Ingresá la cantidad de cada sticker. La app detecta automáticamente cuáles te faltan y cuáles son repetidas.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🎯</span>
+        <h3>Matches inteligentes</h3>
+        <p>El sistema encuentra coleccionistas cercanos que tienen lo que te falta y necesitan lo que vos tenés de más.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">💬</span>
+        <h3>Chat seguro</h3>
+        <p>Coordiná el intercambio por el chat integrado. Sin dar datos personales, sin salir de la app.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">⭐</span>
+        <h3>Reputación confiable</h3>
+        <p>Calificá cada intercambio. Construí tu perfil de trader confiable y encontrá solo usuarios verificados.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🌍</span>
+        <h3>Múltiples álbumes</h3>
+        <p>Soporta todos tus álbumes favoritos. Panini, Topps, Dragon Ball, FIFA y muchos más.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">👑</span>
+        <h3>Premium sin anuncios</h3>
+        <p>Suscribite a Premium para disfrutar la app sin interrupciones. Cancelá cuando quieras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <div class="how-header reveal">
+      <div class="section-label">Cómo funciona</div>
+      <h2 class="section-title">Simple como <span>1, 2, 3</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Registrá tu colección</h3>
+        <p>Ingresá cuántos stickers tenés de cada número. La app calcula automáticamente tus faltantes y repetidas.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Encontrá matches</h3>
+        <p>El sistema te conecta con coleccionistas cercanos que tienen lo que te falta y buscan lo que vos tenés.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Intercambiá y completá</h3>
+        <p>Coordiná el intercambio por chat, confirmá la entrega y calificá al otro trader. ¡Álbum completo!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label reveal">Descargalo ahora</div>
+    <h2 class="section-title reveal">¿Listo para completar<br><span>tu álbum?</span></h2>
+    <p class="section-sub reveal" style="margin: 0 auto 2.5rem; text-align:center;">
+      Gratis para iOS y Android. Miles de coleccionistas ya están intercambiando.
+    </p>
+    <div class="store-buttons reveal">
+      <a href="https://play.google.com/store/apps/details?id=com.swapperclub.app" target="_blank" class="store-btn store-btn-google">
+        <svg width="22" height="24" viewBox="0 0 22 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.5 23.3c0 .4.5.6.8.4L12 12 1.3.3C1 .1.5.3.5.7v22.6z" fill="#34A853"/>
+          <path d="M15.8 8.2l-3.8 3.8 3.8 3.8 3.5-2c.9-.5.9-1.6 0-2.1l-3.5-1.5z" fill="#FBBC04"/>
+          <path d="M1.3.3L12 12l3.8-3.8L1.8 0C1.5-.1 1 .1 1.3.3z" fill="#4285F4"/>
+          <path d="M1.3 23.7L15.8 15.8 12 12 1.3 23.7z" fill="#EA4335"/>
+        </svg>
+        <div class="store-btn-text">
+          <small>Disponible en</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+      <a href="https://apps.apple.com/app/swapper-club/id6774427126" target="_blank" class="store-btn store-btn-apple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        <div class="store-btn-text">
+          <small>Próximamente en</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    © 2026 Swapper Club &nbsp;·&nbsp;
+    <a href="https://frazko.github.io/swapperclub-legal/" target="_blank">Política de privacidad</a>
+    &nbsp;·&nbsp;
+    <a href="https://frazko.github.io/Swapperclub-info/support.html" target="_blank">Soporte</a>
+    &nbsp;·&nbsp;
+    swapperclub@gmail.com
+  </p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
