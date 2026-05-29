@@ -29,7 +29,7 @@
       overflow-x: hidden;
     }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -40,10 +40,39 @@
       text-align: center;
       padding: 2rem 1.5rem 4rem;
       overflow: hidden;
-      background: radial-gradient(ellipse at 50% 30%, var(--purple-light) 0%, var(--purple-deep) 70%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('branded_splash.png');
+      background-size: cover;
+      background-position: center top;
+      filter: brightness(0.35) saturate(1.2);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(26,10,46,0) 0%, rgba(26,10,46,0.85) 70%, rgba(26,10,46,1) 100%);
+      z-index: 1;
     }
 
     .hero-content { position: relative; z-index: 2; max-width: 680px; }
+
+    .hero-logo {
+      width: 260px;
+      max-width: 80vw;
+      margin: 0 auto 1rem;
+      filter: drop-shadow(0 4px 24px rgba(201,162,39,0.5));
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+
+    @keyframes floatLogo {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
     .hero-tagline {
       font-family: 'Bebas Neue', sans-serif;
@@ -53,7 +82,6 @@
       color: var(--white);
       text-shadow: 0 2px 20px rgba(0,0,0,0.8);
       margin-bottom: 0.5rem;
-      margin-top: 1.5rem;
     }
 
     .hero-tagline span {
@@ -103,6 +131,8 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
+    .store-btn-apple:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.7); }
+
     .store-btn-google {
       background: #000000;
       color: white;
@@ -110,9 +140,25 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
+    .store-btn-google:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.7); background: #1a1a1a; }
+
+    .store-btn svg { flex-shrink: 0; }
+
     .store-btn-text { display: flex; flex-direction: column; line-height: 1.2; }
     .store-btn-text small { font-size: 0.7rem; font-weight: 400; opacity: 0.8; }
     .store-btn-text strong { font-size: 1rem; }
+
+    .badge-soon {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+      color: var(--text-muted);
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
 
     .dots {
       display: flex;
@@ -136,7 +182,7 @@
       50% { opacity: 1; transform: scale(1.3); }
     }
 
-    /* FEATURES */
+    /* ── FEATURES ── */
     section { padding: 5rem 1.5rem; }
 
     .section-label {
@@ -170,8 +216,11 @@
       line-height: 1.7;
     }
 
+    /* Features grid */
     .features { background: linear-gradient(180deg, var(--purple-deep) 0%, #0f0620 100%); }
+
     .features-inner { max-width: 1100px; margin: 0 auto; }
+
     .features-header { text-align: center; margin-bottom: 3.5rem; }
 
     .features-grid {
@@ -186,6 +235,18 @@
       border-radius: 20px;
       padding: 2rem 1.5rem;
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
     .feature-card:hover {
@@ -193,6 +254,8 @@
       border-color: rgba(201,162,39,0.5);
       box-shadow: 0 12px 40px rgba(201,162,39,0.15);
     }
+
+    .feature-card:hover::before { opacity: 1; }
 
     .feature-icon {
       font-size: 2.4rem;
@@ -213,7 +276,47 @@
       line-height: 1.6;
     }
 
-    /* HOW IT WORKS */
+    /* ── SCREENSHOTS ── */
+    .screenshots { background: #0f0620; }
+
+    .screenshots-inner { max-width: 1100px; margin: 0 auto; }
+
+    .screenshots-header { margin-bottom: 3rem; }
+
+    .screens-scroll {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .screens-scroll { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .screens-scroll { grid-template-columns: 1fr 1fr; }
+    }
+
+    .screen-item {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(201,162,39,0.2);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .screen-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(201,162,39,0.2);
+    }
+
+    .screen-item img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── HOW IT WORKS ── */
     .how { background: linear-gradient(180deg, #0f0620 0%, var(--purple-deep) 100%); }
     .how-inner { max-width: 900px; margin: 0 auto; }
     .how-header { text-align: center; margin-bottom: 3.5rem; }
@@ -222,9 +325,13 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
+      position: relative;
     }
 
-    .step { text-align: center; }
+    .step {
+      text-align: center;
+      position: relative;
+    }
 
     .step-num {
       width: 60px; height: 60px;
@@ -252,7 +359,7 @@
       line-height: 1.6;
     }
 
-    /* CTA */
+    /* ── CTA FINAL ── */
     .cta-section {
       background: linear-gradient(135deg, var(--purple-mid), #0a0418);
       text-align: center;
@@ -261,9 +368,28 @@
       overflow: hidden;
     }
 
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(201,162,39,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
     .cta-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
 
-    /* FOOTER */
+    .cta-icon {
+      width: 90px; height: 90px;
+      border-radius: 22px;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 8px 40px rgba(201,162,39,0.4);
+      display: block;
+      border: 2px solid rgba(201,162,39,0.3);
+    }
+
+    /* ── FOOTER ── */
     footer {
       background: #08030f;
       padding: 2rem 1.5rem;
@@ -283,7 +409,7 @@
 
     footer a:hover { text-decoration: underline; }
 
-    /* SCROLL ANIMATIONS */
+    /* ── SCROLL ANIMATIONS ── */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -299,7 +425,10 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
+    <img class="hero-logo" src="swapperclub_logo_transparente.png" alt="Swapper Club"/>
     <h1 class="hero-tagline">
       Completá tu álbum<br><span>sin salir de casa</span>
     </h1>
@@ -343,7 +472,7 @@
     <div class="features-header reveal">
       <div class="section-label">¿Por qué Swapper Club?</div>
       <h2 class="section-title">Todo lo que necesitás<br><span>para completar tu álbum</span></h2>
-      <p class="section-sub" style="margin: 0 auto;">La forma más inteligente de intercambiar stickers con coleccionistas cerca tuyo.</p>
+      <p class="section-sub">La forma más inteligente de intercambiar stickers con coleccionistas cerca tuyo.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card reveal">
@@ -380,6 +509,30 @@
   </div>
 </section>
 
+<!-- SCREENSHOTS -->
+<section class="screenshots">
+  <div class="screenshots-inner">
+    <div class="screenshots-header reveal">
+      <div class="section-label">La app en acción</div>
+      <h2 class="section-title">Diseñada para<br><span>coleccionistas como vos</span></h2>
+    </div>
+    <div class="screens-scroll">
+      <div class="screen-item reveal">
+        <img src="onboarding_1.png" alt="Pantalla 1"/>
+      </div>
+      <div class="screen-item reveal">
+        <img src="onboarding_2.png" alt="Pantalla 2"/>
+      </div>
+      <div class="screen-item reveal">
+        <img src="onboarding_3.png" alt="Pantalla 3"/>
+      </div>
+      <div class="screen-item reveal">
+        <img src="onboarding_4.png" alt="Pantalla 4"/>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="how">
   <div class="how-inner">
@@ -410,6 +563,7 @@
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-inner">
+    <img class="cta-icon reveal" src="icon.png" alt="Swapper Club"/>
     <div class="section-label reveal">Descargalo ahora</div>
     <h2 class="section-title reveal">¿Listo para completar<br><span>tu álbum?</span></h2>
     <p class="section-sub reveal" style="margin: 0 auto 2.5rem; text-align:center;">
