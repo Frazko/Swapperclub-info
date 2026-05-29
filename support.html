@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swapper Club - Soporte</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a2e;
+      background: #f8f9fa;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    header img { width: 80px; height: 80px; border-radius: 18px; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; color: #2D0A3E; margin-bottom: 0.25rem; }
+    .subtitle { color: #666; font-size: 0.95rem; }
+    .lang-selector {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .lang-btn {
+      padding: 0.4rem 1rem;
+      border: 2px solid #2D0A3E;
+      border-radius: 20px;
+      background: transparent;
+      color: #2D0A3E;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: #2D0A3E; color: #fff; }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+    h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: #2D0A3E; }
+    .faq-item { margin-bottom: 1.5rem; }
+    .faq-q { font-weight: 600; margin-bottom: 0.35rem; }
+    .faq-a { color: #444; font-size: 0.95rem; }
+    .contact-box {
+      background: #fff;
+      border: 1px solid #e0d5eb;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .contact-box a { color: #7C3AED; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    .delete-box {
+      background: #fff8f0;
+      border: 1px solid #f0d0b0;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    footer a { color: #7C3AED; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Swapper Club</h1>
+      <p class="subtitle">Centro de soporte / Support Center / Central de suporte</p>
+    </header>
+
+    <div class="lang-selector">
+      <button class="lang-btn active" onclick="setLang('es', event)">Español</button>
+      <button class="lang-btn" onclick="setLang('en', event)">English</button>
+      <button class="lang-btn" onclick="setLang('pt', event)">Português</button>
+    </div>
+
+    <!-- ESPAÑOL -->
+    <div class="lang-content active" id="lang-es">
+      <h2>Preguntas frecuentes</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">¿Cómo registro mis stickers?</p>
+        <p class="faq-a">Entrá a tu colección, seleccioná el álbum e ingresá la cantidad de cada sticker. Si tenés 0 es faltante, si tenés más de 1 son repetidas. El sistema calcula tus matches automáticamente.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">¿Cómo funciona el intercambio?</p>
+        <p class="faq-a">Cuando el sistema encuentra un match, podés ver el perfil del otro coleccionista y proponer un intercambio. El otro usuario lo acepta o contraoferta. Una vez aceptado, coordinan la entrega por el chat.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">¿Cómo puedo reportar a un usuario?</p>
+        <p class="faq-a">En cualquier perfil o chat, tocá el menú de tres puntos (⋯) y seleccioná "Reportar". Revisamos todos los reportes y tomamos acción según nuestras políticas.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">¿La app es gratuita?</p>
+        <p class="faq-a">Sí, la app es gratuita con anuncios. Podés suscribirte a Premium para eliminar los anuncios y acceder a funciones adicionales.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">¿Cómo cancelo mi suscripción Premium?</p>
+        <p class="faq-a">Podés cancelar tu suscripción desde la configuración de tu dispositivo: Ajustes → [tu nombre] → Suscripciones → Swapper Club.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">¿Cómo restauro mi compra?</p>
+        <p class="faq-a">En la app, andá a Configuración → Obtener Premium → "Restaurar compra anterior".</p>
+      </div>
+
+      <div class="delete-box">
+        <p class="faq-q">🗑 Eliminar mi cuenta</p>
+        <p class="faq-a">Podés eliminar tu cuenta permanentemente desde la app: <strong>Configuración → Eliminar cuenta</strong>. Esta acción es irreversible y borra todos tus datos. También podés solicitarlo enviando un email a <a href="mailto:swapperclub@gmail.com">swapperclub@gmail.com</a>.</p>
+      </div>
+
+      <div class="contact-box">
+        <p class="faq-q">¿Necesitás más ayuda?</p>
+        <p class="faq-a">Escribinos a <a href="mailto:swapperclub@gmail.com">swapperclub@gmail.com</a> y te respondemos a la brevedad.</p>
+      </div>
+    </div>
+
+    <!-- ENGLISH -->
+    <div class="lang-content" id="lang-en">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I log my stickers?</p>
+        <p class="faq-a">Go to your collection, select the album and enter the quantity of each sticker. If you have 0 it's a missing sticker, if you have more than 1 those are extras. The system calculates your matches automatically.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How does trading work?</p>
+        <p class="faq-a">When the system finds a match, you can view the other collector's profile and propose a trade. The other user accepts or counter-offers. Once accepted, you coordinate delivery through the chat.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I report a user?</p>
+        <p class="faq-a">On any profile or chat, tap the three-dot menu (⋯) and select "Report". We review all reports and take action according to our policies.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Is the app free?</p>
+        <p class="faq-a">Yes, the app is free with ads. You can subscribe to Premium to remove ads and access additional features.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I cancel my Premium subscription?</p>
+        <p class="faq-a">You can cancel your subscription from your device settings: Settings → [your name] → Subscriptions → Swapper Club.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I restore my purchase?</p>
+        <p class="faq-a">In the app, go to Settings → Get Premium → "Restore previous purchase".</p>
+      </div>
+
+      <div class="delete-box">
+        <p class="faq-q">🗑 Delete my account</p>
+        <p class="faq-a">You can permanently delete your account from within the app: <strong>Settings → Delete account</strong>. This action is irreversible and deletes all your data. You can also request deletion by emailing <a href="mailto:swapperclub@gmail.com">swapperclub@gmail.com</a>.</p>
+      </div>
+
+      <div class="contact-box">
+        <p class="faq-q">Need more help?</p>
+        <p class="faq-a">Email us at <a href="mailto:swapperclub@gmail.com">swapperclub@gmail.com</a> and we'll get back to you shortly.</p>
+      </div>
+    </div>
+
+    <!-- PORTUGUÊS -->
+    <div class="lang-content" id="lang-pt">
+      <h2>Perguntas frequentes</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">Como registro minhas figurinhas?</p>
+        <p class="faq-a">Acesse sua coleção, selecione o álbum e insira a quantidade de cada figurinha. Se tiver 0 é faltante, se tiver mais de 1 são repetidas. O sistema calcula seus matches automaticamente.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Como funciona a troca?</p>
+        <p class="faq-a">Quando o sistema encontra um match, você pode ver o perfil do outro colecionador e propor uma troca. O outro usuário aceita ou faz uma contraproposta. Após aceito, vocês combinam a entrega pelo chat.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Como reporto um usuário?</p>
+        <p class="faq-a">Em qualquer perfil ou chat, toque no menu de três pontos (⋯) e selecione "Reportar". Revisamos todos os reportes e tomamos medidas conforme nossas políticas.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">O app é gratuito?</p>
+        <p class="faq-a">Sim, o app é gratuito com anúncios. Você pode assinar o Premium para remover os anúncios e acessar recursos adicionais.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Como cancelo minha assinatura Premium?</p>
+        <p class="faq-a">Você pode cancelar sua assinatura nas configurações do dispositivo: Ajustes → [seu nome] → Assinaturas → Swapper Club.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Como restauro minha compra?</p>
+        <p class="faq-a">No app, vá em Configurações → Obter Premium → "Restaurar compra anterior".</p>
+      </div>
+
+      <div class="delete-box">
+        <p class="faq-q">🗑 Excluir minha conta</p>
+        <p class="faq-a">Você pode excluir permanentemente sua conta dentro do app: <strong>Configurações → Excluir conta</strong>. Esta ação é irreversível e apaga todos os seus dados. Você também pode solicitar a exclusão enviando um e-mail para <a href="mailto:swapperclub@gmail.com">swapperclub@gmail.com</a>.</p>
+      </div>
+
+      <div class="contact-box">
+        <p class="faq-q">Precisa de mais ajuda?</p>
+        <p class="faq-a">Envie um e-mail para <a href="mailto:swapperclub@gmail.com">swapperclub@gmail.com</a> e responderemos em breve.</p>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://frazko.github.io/swapperclub-legal/">Política de Privacidad</a> &nbsp;·&nbsp;
+      swapperclub@gmail.com &nbsp;·&nbsp; © 2026 Swapper Club
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang, e) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+      e.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
